@@ -1,0 +1,53 @@
+{
+  "name": "random-object-stream",
+  "version": "1.0.0",
+  "engines": {
+    "node": "~8.4.0"
+  },
+  "description": "random-object-stream is a tiny utility for generating a random object stream for unit testing.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf factory lib",
+    "prepare": "npm run build && mkdir lib && cp factory/source/* lib && rm -rf factory",
+    "release": "standard-version"
+  },
+  "jest": {
+    "bail": true,
+    "resetModules": true,
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.spec.ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvis/random-object-stream.git"
+  },
+  "keywords": [
+    "jest",
+    "stream"
+  ],
+  "author": "Alvis HT Tang <alvis@hilbert.space>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alvis/random-object-stream/issues"
+  },
+  "homepage": "https://github.com/alvis/random-object-stream#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.20",
+    "standard-version": "^4.2.0",
+    "typescript": "^2.4.2"
+  }
+}
