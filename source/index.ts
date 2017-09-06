@@ -33,6 +33,10 @@ export class RandomReadableStream<R> extends Readable {
   }
 
   public _read(): void {
+    setTimeout(this.delayedRead.bind(this), 5);
+  }
+
+  private delayedRead(): void {
     if (Math.random() < this.options.errorRate) {
       // emit error at the specified rate
       this.emit('error', 'random error');
